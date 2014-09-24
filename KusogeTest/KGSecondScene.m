@@ -6,11 +6,9 @@
 //  Copyright (c) 2014年 naoyashiga. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "KGSecondScene.h"
 #import "KGSpriteScene.h"
-
-#define APP (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#import "KGSingletonSample.h"
 
 @implementation KGSecondScene{
     BOOL _contentCreated;
@@ -31,7 +29,7 @@
     SKLabelNode *resultDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
     NSString *str1 = @"SCORE:";
-    NSString *str2 = [NSString stringWithFormat:@"%d",[APP score]];
+    NSString *str2 = [NSString stringWithFormat:@"%d",[KGSingletonSample sharedManager].score];
     resultDisplay.text = [str1 stringByAppendingString:str2];
     resultDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     resultDisplay.name = @"SCORE";

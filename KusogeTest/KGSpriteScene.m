@@ -6,12 +6,9 @@
 //  Copyright (c) 2014年 naoyashiga. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "KGSpriteScene.h"
 #import "KGSecondScene.h"
 #import "KGSingletonSample.h"
-
-#define APP (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
 float speed = 1.5f;
 float groundToBottomSpeed = 0.3f;
@@ -53,10 +50,6 @@ int GROUND_Y;
 
 - (void)createSceneContents{
     GROUND_Y = CGRectGetMidY(self.frame);
-    
-    NSLog(@"Singleton score %d",[KGSingletonSample sharedManager].score);
-    [KGSingletonSample sharedManager].score = 300;
-    NSLog(@"Singleton score %d",[KGSingletonSample sharedManager].score);
     
     [self addScoreDisplay];
     [self addGround];
@@ -165,13 +158,9 @@ int GROUND_Y;
 
 //スコアを計算
 - (void)calcScore{
-    //score++;
-    int currentScore = [APP score];
-    currentScore++;
-    [APP setScore:currentScore];
-    //NSLog(@"%d",score);
+    [KGSingletonSample sharedManager].score++;
     NSString *str1 = @"SCORE:";
-    NSString *str2 = [NSString stringWithFormat:@"%d",currentScore];
+    NSString *str2 = [NSString stringWithFormat:@"%d",[KGSingletonSample sharedManager].score];
     self.scoreDisplay.text = [str1 stringByAppendingString:str2];
 }
 
@@ -208,8 +197,6 @@ int GROUND_Y;
     if([contact.bodyA.node.name isEqualToString:@"player"] && [contact.bodyB.node.name isEqualToString:@"leftWall"]){
         NSLog(@"hit");
         
-        //app.score = 0;
-        
         //タイマー停止
         [_timer invalidate];
         _timer = nil;
@@ -222,7 +209,6 @@ int GROUND_Y;
     
     if([contact.bodyA.node.name isEqualToString:@"player"] && [contact.bodyB.node.name isEqualToString:@"rightWall"]){
         NSLog(@"hit2");
-        //score = 0;
     }
 }
 
