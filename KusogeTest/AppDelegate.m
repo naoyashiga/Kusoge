@@ -7,16 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import "KusogeViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    KusogeViewController *kusogeViewController = [[KusogeViewController alloc]init];
+    _window.rootViewController = kusogeViewController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (int)getScore{
+    return _score;
+}
+- (void)setScore:(int)score{
+    _score = score;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
