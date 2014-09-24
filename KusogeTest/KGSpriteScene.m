@@ -194,8 +194,8 @@ int GROUND_Y;
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
-    if([contact.bodyA.node.name isEqualToString:@"player"] && [contact.bodyB.node.name isEqualToString:@"leftWall"]){
-        NSLog(@"hit");
+    if([contact.bodyA.node.name isEqualToString:@"player"] && ([contact.bodyB.node.name isEqualToString:@"leftWall"] || [contact.bodyB.node.name isEqualToString:@"rightWall"])){
+        NSLog(@"hit");                                                                                                  
         
         //タイマー停止
         [_timer invalidate];
@@ -205,10 +205,6 @@ int GROUND_Y;
         KGSecondScene *resultScene = [KGSecondScene sceneWithSize:self.size];
         resultScene.prevScene = self;
         [self.view presentScene:resultScene];
-    }
-    
-    if([contact.bodyA.node.name isEqualToString:@"player"] && [contact.bodyB.node.name isEqualToString:@"rightWall"]){
-        NSLog(@"hit2");
     }
 }
 
