@@ -37,11 +37,23 @@
     
     //button
     SKLabelNode *retryBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
+    retryBtn.text = @"Retry";
+    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
+    retryBtn.name = @"retryBtn";
+    [self addChild:retryBtn];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    SKTransition *door = [SKTransition doorwayWithDuration:1.0f];
-    [self.view presentScene:_prevScene transition:door];
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    if (node != nil && [node.name isEqualToString:@"retryBtn"]) {
+        NSLog(@"button click");
+        SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
+        [self.view presentScene:_prevScene transition:push];
+    }
+    //SKTransition *door = [SKTransition doorwayWithDuration:1.0f];
+    //[self.view presentScene:_prevScene transition:door];
+    
 }
 @end
