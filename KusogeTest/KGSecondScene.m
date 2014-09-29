@@ -34,6 +34,10 @@
     resultDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     resultDisplay.name = @"SCORE";
     [self addChild:resultDisplay];
+    
+    //button
+    SKLabelNode *retryBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
