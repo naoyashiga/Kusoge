@@ -49,11 +49,13 @@
     SKNode *node = [self nodeAtPoint:location];
     if (node != nil && [node.name isEqualToString:@"retryBtn"]) {
         NSLog(@"button click");
+        SKScene *test = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
-        [self.view presentScene:_prevScene transition:push];
+        
+        //スコアを初期化
+        [KGSingletonSample sharedManager].score = 0;
+        [self.view presentScene:test transition:push];
+//        [self.view presentScene:_prevScene transition:push];
     }
-    //SKTransition *door = [SKTransition doorwayWithDuration:1.0f];
-    //[self.view presentScene:_prevScene transition:door];
-    
 }
 @end
