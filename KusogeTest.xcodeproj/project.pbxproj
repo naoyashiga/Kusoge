@@ -393,11 +393,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Naoya Sugimoto (5JW3B2ZP2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Naoya Sugimoto (5JW3B2ZP2Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KusogeTest/KusogeTest-Prefix.pch";
 				INFOPLIST_FILE = "KusogeTest/KusogeTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2eea9246-eab2-4f89-a761-913d5a323422";
+				PROVISIONING_PROFILE = "1201303a-d110-43d1-a8c4-51a7aadf43f6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -408,11 +409,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Naoya Sugimoto (5JW3B2ZP2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Naoya Sugimoto (5JW3B2ZP2Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KusogeTest/KusogeTest-Prefix.pch";
 				INFOPLIST_FILE = "KusogeTest/KusogeTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2eea9246-eab2-4f89-a761-913d5a323422";
+				PROVISIONING_PROFILE = "1201303a-d110-43d1-a8c4-51a7aadf43f6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

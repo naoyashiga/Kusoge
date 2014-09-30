@@ -10,7 +10,7 @@
 #import "KGSecondScene.h"
 #import "KGSingletonSample.h"
 
-float speed = 1.5f;
+float speed = 1.0f;
 float groundToBottomSpeed = 0.3f;
 float wfDuration = 0.1f;
 int wallPieceNum = 6;
@@ -63,7 +63,7 @@ int GROUND_Y;
 //スコアを表示
 - (void)addScoreDisplay{
     self.scoreDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-    self.scoreDisplay.text = @"SCORE:0";
+    self.scoreDisplay.text = @"⛪️SCORE:0";
     self.scoreDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     self.scoreDisplay.name = @"SCORE";
     [self addChild:self.scoreDisplay];
@@ -82,19 +82,24 @@ int GROUND_Y;
 - (void)addPlayer{
     //画像を表示
     //SKSpriteNode *player = [SKSpriteNode spriteNodeWithImageNamed:@"cat.jpeg"];
-    SKSpriteNode *player = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(50,50)];
+    //図形
+//    SKSpriteNode *player = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(50,50)];
+    SKLabelNode *player = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    player.text = @"💩";
+    player.fontSize = 100;
+    
     player.position = CGPointMake(CGRectGetMidX(self.frame), GROUND_Y);
     player.xScale = playerScale;
     player.yScale = playerScale;
     player.name = @"player";
     
-    player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
+    player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.frame.size];
     player.physicsBody.affectedByGravity = NO;
     player.physicsBody.contactTestBitMask = 1;
     [self addChild:player];
     //画面端を定義
-    SCREEN_RIGHT = self.view.bounds.size.width - player.size.width / 2;
-    SCREEN_LEFT = player.size.width / 2;
+    SCREEN_RIGHT = self.view.bounds.size.width - player.frame.size.width / 2;
+    SCREEN_LEFT = player.frame.size.width / 2;
 }
 
 //壁を追加
