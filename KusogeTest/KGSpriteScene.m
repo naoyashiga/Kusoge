@@ -60,7 +60,7 @@ int GROUND_Y;
 - (void)addScoreDisplay{
     self.scoreDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     self.scoreDisplay.text = @"️SCORE:0";
-    self.scoreDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    self.scoreDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
     self.scoreDisplay.name = @"SCORE";
     [self addChild:self.scoreDisplay];
 }
@@ -78,7 +78,8 @@ int GROUND_Y;
 - (void)addPlayer{
     SKLabelNode *player = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     player.text = @"💩";
-    player.fontSize = self.frame.size.width / 8;
+    //ウンチのサイズ
+    player.fontSize = self.frame.size.width / 5;
     
     player.position = CGPointMake(CGRectGetMidX(self.frame), GROUND_Y);
     player.name = @"player";
@@ -113,7 +114,8 @@ int GROUND_Y;
     //右の教会を作成
     SKLabelNode *rightHoly = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     rightHoly.text = @"️️️️️️️";
-    for (int i = 0; i < holyPieceNum - leftHolyPieceNum; i++) {
+    int spaceSize = 2;
+    for (int i = 0; i < holyPieceNum - (leftHolyPieceNum + spaceSize - 1); i++) {
         rightHoly.text = [rightHoly.text stringByAppendingString:@"⛪️"];
     }
     rightHoly.fontSize = leftHoly.fontSize;
