@@ -10,15 +10,12 @@
 #import "KGSecondScene.h"
 #import "KGSingletonSample.h"
 
-float speed = 2.0f;
-float groundToBottomSpeed = 0.3f;
-float wfDuration = 0.1f;
-int wallHeight = 10;
-float wallPieceSize;
-float playerSpeed = 2.0f;
+static const float speed = 2.0f;
+static const float groundToBottomSpeed = 0.3f;
+static const float playerSpeed = 2.0f;
 
-float wallCreateInterval = 1.0f;
-float playerScale = 0.4f;
+static const float wallCreateInterval = 1.0f;
+static const int holyPieceNum = 8;
 
 CGPoint startPt;
 float startPlayerPosX;
@@ -26,9 +23,7 @@ float startPlayerPosX;
 float SCREEN_RIGHT;
 float SCREEN_LEFT;
 int GROUND_Y;
-//int score = 0;
 
-static int holyPieceNum = 8;
 @implementation KGSpriteScene {
     BOOL _contentCreated;
 }
@@ -79,7 +74,7 @@ static int holyPieceNum = 8;
     [self addChild:ground];
 }
 
-//ネコを追加
+//プレイヤーを追加
 - (void)addPlayer{
     SKLabelNode *player = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     player.text = @"💩";
