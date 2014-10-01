@@ -29,6 +29,7 @@ float SCREEN_LEFT;
 int GROUND_Y;
 //int score = 0;
 
+static int holyPieceNum = 6;
 @implementation KGSpriteScene {
     BOOL _contentCreated;
 }
@@ -86,7 +87,7 @@ int GROUND_Y;
 //    SKSpriteNode *player = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(50,50)];
     SKLabelNode *player = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     player.text = @"💩";
-    player.fontSize = 100;
+    player.fontSize = self.frame.size.width / 8;
     
     player.position = CGPointMake(CGRectGetMidX(self.frame), GROUND_Y);
     player.xScale = playerScale;
@@ -104,6 +105,36 @@ int GROUND_Y;
 
 //壁を追加
 - (void)addWall{
+    //左の⛪️の数をランダムに決める
+    int leftHolyPieceNum = arc4random() % holyPieceNum;
+    SKLabelNode *leftHoly = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    leftHoly.text = @"";
+    for (int i = 0; i < leftHolyPieceNum; i++) {
+        //絵文字を結合
+        leftHoly.text = [leftHoly.text stringByAppendingString:@"⛪️"];
+    }
+    leftHoly.fontSize = self.frame.size.width / (holyPieceNum + 1);
+    leftHoly.position = CGPointMake(leftHoly.frame.size.width / 2, 100);
+    leftHoly.name = @"leftHoly";
+    leftHoly.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:leftHoly.frame.size];
+    leftHoly.physicsBody.dynamic = NO;
+    leftHoly.physicsBody.contactTestBitMask = 1;
+    [self addChild:leftHoly];
+    
+    SKLabelNode *rightHoly = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    rightHoly.text = @"️️️️️️️";
+    for (int i = 0; i < holyPieceNum - leftHolyPieceNum; i++) {
+        rightHoly.text = [rightHoly.text stringByAppendingString:@"⛪️"];
+    }
+    rightHoly.fontSize = leftHoly.fontSize;
+    //左の⛪️　+ スペース　+ 右の⛪️
+    rightHoly.position = CGPointMake(self.frame.size.width - rightHoly.frame.size.width / 2, 100);
+    rightHoly.name = @"leftHoly";
+    rightHoly.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rightHoly.frame.size];
+    rightHoly.physicsBody.dynamic = NO;
+    rightHoly.physicsBody.contactTestBitMask = 1;
+    [self addChild:rightHoly];
+    
     //左の壁
     float leftWallWidth = wallPieceSize * (arc4random() % wallPieceNum);
     SKSpriteNode *leftWall = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(leftWallWidth,wallHeight)];
