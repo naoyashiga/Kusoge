@@ -13,7 +13,6 @@
 float speed = 2.0f;
 float groundToBottomSpeed = 0.3f;
 float wfDuration = 0.1f;
-int wallPieceNum = 6;
 int wallHeight = 10;
 float wallPieceSize;
 float playerSpeed = 2.0f;
@@ -29,7 +28,7 @@ float SCREEN_LEFT;
 int GROUND_Y;
 //int score = 0;
 
-static int holyPieceNum = 6;
+static int holyPieceNum = 8;
 @implementation KGSpriteScene {
     BOOL _contentCreated;
 }
@@ -52,10 +51,11 @@ static int holyPieceNum = 6;
 - (void)createSceneContents{
     GROUND_Y = CGRectGetMidY(self.frame);
     
+    self.backgroundColor = [SKColor colorWithRed:0 green:0.3 blue:0 alpha:1.0];
+    
     [self addScoreDisplay];
-    [self addGround];
+//    [self addGround];
     [self addPlayer];
-    wallPieceSize = self.view.bounds.size.width / wallPieceNum;
     
     //繰り返し壁を生成
     _timer = [NSTimer scheduledTimerWithTimeInterval:wallCreateInterval target:self selector:@selector(addWall) userInfo:nil repeats:YES];

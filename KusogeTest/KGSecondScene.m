@@ -21,11 +21,24 @@
     }
 }
 - (void)createSceneContents{
-    self.backgroundColor = [SKColor redColor];
+    self.backgroundColor = [SKColor colorWithRed:0.6 green:0 blue:0 alpha:0.9];
     [self addResult];
 }
 
 - (void)addResult{
+    SKLabelNode *holyShit = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    
+    holyShit.text = @"HOLY SHIT";
+    holyShit.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
+    [self addChild:holyShit];
+    
+    SKLabelNode *emoji = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    
+    emoji.text = @"⛪️💩";
+    emoji.fontSize = 50;
+    emoji.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 50);
+    [self addChild:emoji];
+    
     SKLabelNode *resultDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
     NSString *str1 = @"SCORE:";
