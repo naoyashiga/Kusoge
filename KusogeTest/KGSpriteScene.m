@@ -10,7 +10,7 @@
 #import "KGSecondScene.h"
 #import "KGSingletonSample.h"
 
-float speed = 1.0f;
+float speed = 2.0f;
 float groundToBottomSpeed = 0.3f;
 float wfDuration = 0.1f;
 int wallPieceNum = 6;
@@ -81,20 +81,14 @@ static int holyPieceNum = 6;
 
 //ネコを追加
 - (void)addPlayer{
-    //画像を表示
-    //SKSpriteNode *player = [SKSpriteNode spriteNodeWithImageNamed:@"cat.jpeg"];
-    //図形
-//    SKSpriteNode *player = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(50,50)];
     SKLabelNode *player = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     player.text = @"💩";
     player.fontSize = self.frame.size.width / 8;
     
     player.position = CGPointMake(CGRectGetMidX(self.frame), GROUND_Y);
-    player.xScale = playerScale;
-    player.yScale = playerScale;
     player.name = @"player";
     
-    player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.frame.size];
+    player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
     player.physicsBody.affectedByGravity = NO;
     player.physicsBody.contactTestBitMask = 1;
     [self addChild:player];
@@ -136,32 +130,13 @@ static int holyPieceNum = 6;
     rightHoly.physicsBody.contactTestBitMask = 1;
     [self addChild:rightHoly];
     
-    //左の壁
-//    float leftWallWidth = wallPieceSize * (arc4random() % wallPieceNum);
-//    SKSpriteNode *leftWall = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(leftWallWidth,wallHeight)];
-//    
-//    leftWall.position = CGPointMake(leftWall.size.width / 2, self.view.bounds.size.height + leftWall.size.height / 2);
-//    leftWall.name = @"leftWall";
-//    leftWall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:leftWall.size];
-//    leftWall.physicsBody.dynamic = NO;
-//    leftWall.physicsBody.contactTestBitMask = 1;
-//    [self addChild:leftWall];
-    
-    //図形を移動
-//    CGPoint screenTop = CGPointMake(leftWall.size.width / 2, self.view.bounds.size.height + leftWall.size.height / 2);
-//    CGPoint screenBottom = CGPointMake(leftWall.size.width / 2, - leftWall.size.height / 2);
     
     CGPoint leftHolyScreenTop = CGPointMake(leftHoly.frame.size.width / 2, self.view.bounds.size.height + leftHoly.frame.size.height / 2);
     CGPoint leftHolyScreenBottom = CGPointMake(leftHoly.frame.size.width / 2, - leftHoly.frame.size.height / 2);
     //地面下
-//    CGPoint groundBottom = CGPointMake(leftWall.size.width / 2, GROUND_Y - leftWall.size.height / 2);
     CGPoint leftHolyGroundBottom = CGPointMake(leftHoly.frame.size.width / 2, GROUND_Y - leftHoly.frame.size.height / 2);
     
     //アニメーションを定義
-//    SKAction *moveGround = [SKAction moveTo:groundBottom duration:speed];
-//    SKAction *moveDown = [SKAction moveTo:screenBottom duration:groundToBottomSpeed];
-//    SKAction *moveTop = [SKAction moveTo:screenTop duration:0.0f];
-    
     SKAction *leftHolyMoveGround = [SKAction moveTo:leftHolyGroundBottom duration:speed];
     SKAction *leftHolyMoveDown = [SKAction moveTo:leftHolyScreenBottom duration:groundToBottomSpeed];
     SKAction *leftHolyMoveTop = [SKAction moveTo:leftHolyScreenTop duration:0.0f];
@@ -171,39 +146,9 @@ static int holyPieceNum = 6;
     }];
     SKAction *remove = [SKAction removeFromParent];
     
-//    SKAction *sequence = [SKAction sequence:@[moveGround,updateScore,moveDown,moveTop,remove]];
-//    [leftWall runAction:sequence];
-    
     SKAction *leftHolySequence = [SKAction sequence:@[leftHolyMoveGround,updateScore,leftHolyMoveDown,leftHolyMoveTop,remove]];
     [leftHoly runAction:leftHolySequence];
     
-    
-    
-    
-    //右の壁
-//    float rightWallWidth = self.view.bounds.size.width - (leftWallWidth + wallPieceSize);
-//    SKSpriteNode *rightWall = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(rightWallWidth,wallHeight)];
-//    float rightWallPosX = leftWall.size.width + wallPieceSize + rightWall.size.width / 2;
-//    
-//    rightWall.position = CGPointMake(rightWallPosX, self.view.bounds.size.height + rightWall.size.height / 2);
-//    rightWall.name = @"rightWall";
-//    rightWall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rightWall.size];
-//    rightWall.physicsBody.dynamic = NO;
-//    rightWall.physicsBody.contactTestBitMask = 1;
-//    [self addChild:rightWall];
-    
-    //移動位置を定義
-//    CGPoint rightWallScreenTop = CGPointMake(rightWallPosX, self.view.bounds.size.height + leftWall.size.height / 2);
-//    CGPoint rightWallScreenBottom = CGPointMake(rightWallPosX, - leftWall.size.height / 2);
-//    CGPoint rightWallGroundBottom = CGPointMake(rightWallPosX, GROUND_Y - rightWall.size.height / 2);
-    
-    //アニメーションを定義
-//    SKAction *rwMoveGround = [SKAction moveTo:rightWallGroundBottom duration:speed];
-//    SKAction *rightWallMoveDown = [SKAction moveTo:rightWallScreenBottom duration:groundToBottomSpeed];
-//    SKAction *rightWallMoveTop = [SKAction moveTo:rightWallScreenTop duration:0.0f];
-//    
-//    SKAction *rightWallSequence = [SKAction sequence:@[rwMoveGround,rightWallMoveDown,rightWallMoveTop,remove]];
-//    [rightWall runAction:rightWallSequence];
     
     float rightHolyPosX = self.frame.size.width - rightHoly.frame.size.width / 2;
     CGPoint rightHolyScreenTop = CGPointMake(rightHolyPosX, self.view.bounds.size.height + rightHoly.frame.size.height / 2);
@@ -265,7 +210,6 @@ static int holyPieceNum = 6;
         [_timer invalidate];
         _timer = nil;
         
-        //SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0];
         KGSecondScene *resultScene = [KGSecondScene sceneWithSize:self.size];
         resultScene.prevScene = self;
         [self.view presentScene:resultScene];
