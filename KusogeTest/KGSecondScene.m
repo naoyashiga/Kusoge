@@ -8,6 +8,7 @@
 
 #import "KGSecondScene.h"
 #import "KGSpriteScene.h"
+#import "KGStartScene.h"
 #import "KGSingletonSample.h"
 
 @implementation KGSecondScene{
@@ -51,9 +52,16 @@
     //button
     SKLabelNode *retryBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     retryBtn.text = @"Retry";
-    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
+    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), 200);
     retryBtn.name = @"retryBtn";
     [self addChild:retryBtn];
+    
+    //top button
+    SKLabelNode *topBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    topBtn.text = @"Top";
+    topBtn.position = CGPointMake(CGRectGetMidX(self.frame), 100);
+    topBtn.name = @"topBtn";
+    [self addChild:topBtn];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -68,7 +76,14 @@
         //スコアを初期化
         [KGSingletonSample sharedManager].score = 0;
         [self.view presentScene:test transition:push];
-//        [self.view presentScene:_prevScene transition:push];
+    }else if(node != nil && [node.name isEqualToString:@"topBtn"]) {
+        //topに戻る
+        SKScene *startScene = [KGStartScene sceneWithSize:self.size];
+        SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
+        
+        //スコアを初期化
+        [self.view presentScene:startScene transition:push];
+        
     }
 }
 @end

@@ -19,7 +19,7 @@
     }
 }
 - (void)createSceneContents{
-    self.backgroundColor = [SKColor colorWithRed:0.6 green:0 blue:0 alpha:0.9];
+    self.backgroundColor = [SKColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0];
     [self addStartScene];
 }
 
@@ -37,20 +37,20 @@
     emoji.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 50);
     [self addChild:emoji];
     
-    SKLabelNode *beer = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
+    SKLabelNode *startBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
-    beer.text = @"🍺";
-    beer.fontSize = 100;
-    beer.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
-    beer.name = @"beer";
-    [self addChild:beer];
+    startBtn.text = @"🍺";
+    startBtn.fontSize = 100;
+    startBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
+    startBtn.name = @"startBtn";
+    [self addChild:startBtn];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
-    if (node != nil && [node.name isEqualToString:@"beer"]) {
+    if (node != nil && [node.name isEqualToString:@"startBtn"]) {
 //        NSLog(@"button click");
         SKScene *test = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
