@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "KusogeViewController.h"
 #import "KGSpriteScene.h"
+#import "KGStartScene.h"
 
 @interface KusogeViewController ()
 
@@ -42,8 +43,8 @@
     skView.showsFPS = YES;
     
     //シーンの作成
-    SKScene *scene = [KGSpriteScene sceneWithSize:self.view.bounds.size];
-    //SKScene *scene = [KGSpriteScene sceneWithSize:skView.bounds.size];
+//    SKScene *scene = [KGSpriteScene sceneWithSize:self.view.bounds.size];
+    SKScene *scene = [KGStartScene sceneWithSize:self.view.bounds.size];
     [skView presentScene:scene];
 }
 

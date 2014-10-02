@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A07427C19DCC94D0071C40B /* KGStartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07427B19DCC94D0071C40B /* KGStartScene.m */; };
 		DC1A911A19D237C70011BC81 /* KGSingletonSample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A911919D237C70011BC81 /* KGSingletonSample.m */; };
 		DC275D4D19C85C6E00FE8B3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC275D4C19C85C6E00FE8B3B /* Foundation.framework */; };
 		DC275D4F19C85C6E00FE8B3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC275D4E19C85C6E00FE8B3B /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A07427A19DCC94D0071C40B /* KGStartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStartScene.h; sourceTree = "<group>"; };
+		9A07427B19DCC94D0071C40B /* KGStartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStartScene.m; sourceTree = "<group>"; };
 		DC1A911819D237C70011BC81 /* KGSingletonSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGSingletonSample.h; sourceTree = "<group>"; };
 		DC1A911919D237C70011BC81 /* KGSingletonSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSingletonSample.m; sourceTree = "<group>"; };
 		DC275D4919C85C6E00FE8B3B /* KusogeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KusogeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +135,8 @@
 				DC275D5319C85C6E00FE8B3B /* Supporting Files */,
 				DC275D7D19C85D1E00FE8B3B /* KusogeViewController.h */,
 				DC275D7E19C85D1E00FE8B3B /* KusogeViewController.m */,
+				9A07427A19DCC94D0071C40B /* KGStartScene.h */,
+				9A07427B19DCC94D0071C40B /* KGStartScene.m */,
 				DC275D8019C8625500FE8B3B /* KGSpriteScene.h */,
 				DC275D8119C8625500FE8B3B /* KGSpriteScene.m */,
 				DCD6177219CDAF7300353212 /* KGSecondScene.h */,
@@ -276,6 +281,7 @@
 				DC275D5D19C85C6E00FE8B3B /* AppDelegate.m in Sources */,
 				DC275D5919C85C6E00FE8B3B /* main.m in Sources */,
 				DC1A911A19D237C70011BC81 /* KGSingletonSample.m in Sources */,
+				9A07427C19DCC94D0071C40B /* KGStartScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
