@@ -52,15 +52,15 @@
     //button
     SKLabelNode *retryBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     retryBtn.text = @"Retry";
-    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), 200);
-    retryBtn.name = @"retryBtn";
+    retryBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) * (2.0f / 3.0f));
+    retryBtn.name = @"retryBtn";                                
     [self addChild:retryBtn];
     
     //top button
     SKLabelNode *topBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     topBtn.text = @"Top";
-    topBtn.position = CGPointMake(CGRectGetMidX(self.frame), 100);
-    topBtn.name = @"topBtn";
+    topBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) * (1.0f / 3.0f));
+    topBtn.name = @"topBtn";                                     
     [self addChild:topBtn];
 }
 
@@ -70,18 +70,19 @@
     SKNode *node = [self nodeAtPoint:location];
     if (node != nil && [node.name isEqualToString:@"retryBtn"]) {
         NSLog(@"button click");
-        SKScene *test = [KGSpriteScene sceneWithSize:self.size];
+        SKScene *spriteScene = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
         
         //スコアを初期化
         [KGSingletonSample sharedManager].score = 0;
-        [self.view presentScene:test transition:push];
+        [self.view presentScene:spriteScene transition:push];
     }else if(node != nil && [node.name isEqualToString:@"topBtn"]) {
         //topに戻る
         SKScene *startScene = [KGStartScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
         
         //スコアを初期化
+        [KGSingletonSample sharedManager].score = 0;
         [self.view presentScene:startScene transition:push];
         
     }

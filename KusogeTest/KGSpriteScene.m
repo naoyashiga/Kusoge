@@ -10,7 +10,7 @@
 #import "KGSecondScene.h"
 #import "KGSingletonSample.h"
 
-static const float speed = 2.0f;
+static const float speed = 1.5f;
 static const float groundToBottomSpeed = 0.3f;
 static const float playerSpeed = 2.0f;
 
