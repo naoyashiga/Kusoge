@@ -42,7 +42,7 @@
     
     SKLabelNode *resultDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
-    NSString *str1 = @"SCORE:";
+    NSString *str1 = @"😎";
     NSString *str2 = [NSString stringWithFormat:@"%d",[KGSingletonSample sharedManager].score];
     resultDisplay.text = [str1 stringByAppendingString:str2];
     resultDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));

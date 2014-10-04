@@ -27,23 +27,44 @@
     SKLabelNode *holyShit = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
     holyShit.text = @"HOLY SHIT";
-    holyShit.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
+    holyShit.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) * (5.0f / 3.0f));
     [self addChild:holyShit];
     
     SKLabelNode *emoji = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
     emoji.text = @"⛪️💩";
-    emoji.fontSize = 100;
+    emoji.fontSize = 80;
     emoji.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 50);
     [self addChild:emoji];
     
     SKLabelNode *startBtn = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
-    startBtn.text = @"🍺";
+    startBtn.text = @"😎";
     startBtn.fontSize = 100;
     startBtn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
     startBtn.name = @"startBtn";
     [self addChild:startBtn];
+    
+    //アニメーションを定義
+//    float startBtnSpeed = 2.0f;
+    float startBtnScaleSpeed = 2.0f;
+    float startBtnScale = 1.1f;
+//    float startBtnMove = 20;
+    
+//    CGPoint startBtnTop = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
+//    CGPoint startBtnBottom = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100 - startBtnMove);
+    
+//    SKAction *down = [SKAction moveTo:startBtnBottom duration:startBtnSpeed];
+//    SKAction *up = [SKAction moveTo:startBtnTop duration:startBtnSpeed];
+    SKAction *bigger = [SKAction scaleTo:startBtnScale duration:startBtnScaleSpeed];
+    SKAction *smaller = [SKAction scaleTo:1.0/startBtnScale duration:startBtnScaleSpeed];
+    
+//    SKAction *startBtnSequence = [SKAction sequence:@[down,up]];
+    SKAction *scaleSequence = [SKAction sequence:@[bigger,smaller]];
+//    SKAction *group = [SKAction group:@[startBtnSequence,scaleSequence]];
+    SKAction *repeat = [SKAction repeatActionForever:scaleSequence];
+    repeat.timingMode = SKActionTimingEaseInEaseOut;
+    [startBtn runAction:repeat];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

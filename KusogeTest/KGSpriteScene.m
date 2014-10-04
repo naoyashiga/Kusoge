@@ -14,7 +14,7 @@ static const float speed = 1.5f;
 static const float groundToBottomSpeed = 0.3f;
 static const float playerSpeed = 2.0f;
 
-static const float wallCreateInterval = 1.0f;
+static const float wallCreateInterval = 0.6f;
 static const int holyPieceNum = 8;
 
 CGPoint startPt;
@@ -59,7 +59,7 @@ int GROUND_Y;
 //スコアを表示
 - (void)addScoreDisplay{
     self.scoreDisplay = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
-    self.scoreDisplay.text = @"️SCORE:0";
+    self.scoreDisplay.text = @"😎";
     self.scoreDisplay.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
     self.scoreDisplay.name = @"SCORE";
     [self addChild:self.scoreDisplay];
@@ -165,7 +165,7 @@ int GROUND_Y;
 //スコアを計算
 - (void)calcScore{
     [KGSingletonSample sharedManager].score++;
-    NSString *str1 = @"SCORE:";
+    NSString *str1 = @"😎";
     NSString *str2 = [NSString stringWithFormat:@"%d",[KGSingletonSample sharedManager].score];
     self.scoreDisplay.text = [str1 stringByAppendingString:str2];
 }
