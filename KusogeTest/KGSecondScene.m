@@ -73,6 +73,8 @@
         SKScene *spriteScene = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
         
+        SKAction *startSound = [SKAction playSoundFileNamed:@"start.mp3" waitForCompletion:NO];
+        [node runAction:startSound];
         //スコアを初期化
         [KGSingletonSample sharedManager].score = 0;
         [self.view presentScene:spriteScene transition:push];

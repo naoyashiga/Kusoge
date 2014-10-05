@@ -73,6 +73,9 @@
     SKNode *node = [self nodeAtPoint:location];
     if (node != nil && [node.name isEqualToString:@"startBtn"]) {
 //        NSLog(@"button click");
+        //sound
+        SKAction *startSound = [SKAction playSoundFileNamed:@"start.mp3" waitForCompletion:NO];
+        [node runAction:startSound];
         SKScene *test = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
 //

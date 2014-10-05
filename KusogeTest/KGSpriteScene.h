@@ -7,9 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface KGSpriteScene : SKScene<SKPhysicsContactDelegate>
 @property(nonatomic,strong) SKLabelNode *scoreDisplay;
 @property(nonatomic,strong) NSTimer *timer;
+@property(nonatomic)AVAudioPlayer *bgm;
 
 @end

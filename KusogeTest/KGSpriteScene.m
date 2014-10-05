@@ -48,6 +48,16 @@ int GROUND_Y;
     
     self.backgroundColor = [SKColor colorWithRed:0 green:0.3 blue:0 alpha:1.0];
     
+    //BGMを設定
+    
+    NSError *error;
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                         pathForResource:@"bgm"
+                                         ofType:@"mp3"]];
+    self.bgm = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+    self.bgm.numberOfLoops = -1;
+    [self.bgm play];
+    
     [self addScoreDisplay];
 //    [self addGround];
     [self addPlayer];
@@ -206,6 +216,9 @@ int GROUND_Y;
         //タイマー停止
         [_timer invalidate];
         _timer = nil;
+        
+        //sound stop
+        [self.bgm stop];
         
         KGSecondScene *resultScene = [KGSecondScene sceneWithSize:self.size];
         resultScene.prevScene = self;
