@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface KGSecondScene : SKScene
 @property (nonatomic) SKScene *prevScene;

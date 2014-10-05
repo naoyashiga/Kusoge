@@ -13,6 +13,7 @@
 
 @implementation KGSecondScene{
     BOOL _contentCreated;
+    AVAudioPlayer *bgm;
 }
 
 - (void)didMoveToView:(SKView *)view{
@@ -24,8 +25,17 @@
 - (void)createSceneContents{
     self.backgroundColor = [SKColor colorWithRed:0.6 green:0 blue:0 alpha:0.9];
     [self addResult];
+    [self addBgm];
 }
 
+- (void)addBgm{
+    //BGMを設定
+    NSError *error;
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"result"ofType:@"mp3"]];
+    bgm = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+    bgm.numberOfLoops = -1;
+    [bgm play];
+}
 - (void)addResult{
     SKLabelNode *holyShit = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
@@ -73,6 +83,8 @@
         SKScene *spriteScene = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
         
+        //bgm停止
+        [bgm stop];
         SKAction *startSound = [SKAction playSoundFileNamed:@"start.mp3" waitForCompletion:NO];
         [node runAction:startSound];
         //スコアを初期化
@@ -82,6 +94,9 @@
         //topに戻る
         SKScene *startScene = [KGStartScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
+        
+        //bgm停止
+        [bgm stop];
         
         //スコアを初期化
         [KGSingletonSample sharedManager].score = 0;

@@ -10,6 +10,7 @@
 #import "KGSpriteScene.h"
 @implementation KGStartScene{
     BOOL _contentCreated;
+    AVAudioPlayer *bgm;
 }
 
 - (void)didMoveToView:(SKView *)view{
@@ -20,9 +21,18 @@
 }
 - (void)createSceneContents{
     self.backgroundColor = [SKColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0];
+    [self addBgm];
     [self addStartScene];
 }
 
+- (void)addBgm{
+    //BGMを設定
+    NSError *error;
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"startBgm"ofType:@"mp3"]];
+    bgm = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+    bgm.numberOfLoops = -1;
+    [bgm play];
+}
 - (void)addStartScene{
     SKLabelNode *holyShit = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
     
@@ -76,6 +86,10 @@
         //sound
         SKAction *startSound = [SKAction playSoundFileNamed:@"start.mp3" waitForCompletion:NO];
         [node runAction:startSound];
+        
+        //bgm停止
+        [bgm stop];
+        
         SKScene *test = [KGSpriteScene sceneWithSize:self.size];
         SKTransition *push = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5f];
 //

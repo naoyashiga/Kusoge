@@ -49,11 +49,8 @@ int GROUND_Y;
     self.backgroundColor = [SKColor colorWithRed:0 green:0.3 blue:0 alpha:1.0];
     
     //BGMを設定
-    
     NSError *error;
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                         pathForResource:@"bgm"
-                                         ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"bgm"ofType:@"mp3"]];
     self.bgm = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
     self.bgm.numberOfLoops = -1;
     [self.bgm play];

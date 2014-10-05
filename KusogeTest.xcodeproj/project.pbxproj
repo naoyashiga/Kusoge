@@ -10,6 +10,8 @@
 		9A07427C19DCC94D0071C40B /* KGStartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07427B19DCC94D0071C40B /* KGStartScene.m */; };
 		9A179D4B19E1238F004077FA /* start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A179D4A19E1238F004077FA /* start.mp3 */; };
 		9A179D4D19E12761004077FA /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A179D4C19E12761004077FA /* bgm.mp3 */; };
+		9A179D4F19E12FDA004077FA /* result.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A179D4E19E12FDA004077FA /* result.mp3 */; };
+		9A179D5119E132E2004077FA /* startBgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A179D5019E132E2004077FA /* startBgm.mp3 */; };
 		DC1A911A19D237C70011BC81 /* KGSingletonSample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A911919D237C70011BC81 /* KGSingletonSample.m */; };
 		DC275D4D19C85C6E00FE8B3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC275D4C19C85C6E00FE8B3B /* Foundation.framework */; };
 		DC275D4F19C85C6E00FE8B3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC275D4E19C85C6E00FE8B3B /* CoreGraphics.framework */; };
@@ -45,6 +47,8 @@
 		9A07427B19DCC94D0071C40B /* KGStartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStartScene.m; sourceTree = "<group>"; };
 		9A179D4A19E1238F004077FA /* start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = start.mp3; sourceTree = "<group>"; };
 		9A179D4C19E12761004077FA /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
+		9A179D4E19E12FDA004077FA /* result.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = result.mp3; sourceTree = "<group>"; };
+		9A179D5019E132E2004077FA /* startBgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startBgm.mp3; sourceTree = "<group>"; };
 		DC1A911819D237C70011BC81 /* KGSingletonSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGSingletonSample.h; sourceTree = "<group>"; };
 		DC1A911919D237C70011BC81 /* KGSingletonSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSingletonSample.m; sourceTree = "<group>"; };
 		DC275D4919C85C6E00FE8B3B /* KusogeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KusogeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,8 @@
 		DC275D5219C85C6E00FE8B3B /* KusogeTest */ = {
 			isa = PBXGroup;
 			children = (
+				9A179D5019E132E2004077FA /* startBgm.mp3 */,
+				9A179D4E19E12FDA004077FA /* result.mp3 */,
 				9A179D4C19E12761004077FA /* bgm.mp3 */,
 				9A179D4A19E1238F004077FA /* start.mp3 */,
 				DC275D8719C865BF00FE8B3B /* cat.jpeg */,
@@ -264,7 +270,9 @@
 				DC275D5F19C85C6E00FE8B3B /* Images.xcassets in Resources */,
 				DC275D8819C865BF00FE8B3B /* cat.jpeg in Resources */,
 				9A179D4B19E1238F004077FA /* start.mp3 in Resources */,
+				9A179D4F19E12FDA004077FA /* result.mp3 in Resources */,
 				9A179D4D19E12761004077FA /* bgm.mp3 in Resources */,
+				9A179D5119E132E2004077FA /* startBgm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
