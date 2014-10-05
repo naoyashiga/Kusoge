@@ -20,7 +20,7 @@
     }
 }
 - (void)createSceneContents{
-    self.backgroundColor = [SKColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0];
+    self.backgroundColor = [SKColor colorWithRed:0.4 green:0.7 blue:1.0 alpha:1.0];
     [self addBgm];
     [self addStartScene];
 }
